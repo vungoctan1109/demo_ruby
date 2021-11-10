@@ -1,0 +1,22 @@
+1. Cài đặt ruby.
+2. Cài đặt rail.
+3. Cài đặt mysql2
+    - Sẽ gặp vấn đề: thiếu thư viên msys2, download tại đây https://www.msys2.org/
+    - Vì đã sử dụng mysql của xampp, cho nên phải chạy câu lệnh sau: gem install mysql2 -- --with-mysql-dir=C:\xampp\mysql
+    - Tạo 2 thư mục lib và include trong C:\xampp
+    - Sau đó chạy `gem install mysql2 -- --with-mysql-dir=C:\xampp\mysql`
+4. Trong file config/database.yml thêm
+    development:
+      adapter: mysql2
+      encoding: utf8
+      database: test
+      username: root
+      password:
+      host: 127.0.0.1
+      port: 3306
+    - comment dòng #development:
+                   #  <<: *default
+                   #  database: db/development.sqlite3
+5. Trong Gemfile thêm dòng gem 'mysql2'.
+6. Chạy 'rails generate scaffold Story title:string content:text'.
+7. Chạy 'rake db:setup'.
